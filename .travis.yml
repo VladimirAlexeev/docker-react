@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t vladimir/front_image -f Dockerfile.dev .
+
+script:
+    - docker run vladimir/front_image npm run test -- --coverage
